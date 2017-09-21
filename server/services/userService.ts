@@ -1,5 +1,5 @@
-import { UserDAO } from './../dal/userDAO';
 import { UserDAO } from '../dal';
+import * as assert from "assert";
 
 export class UserService {
 
@@ -7,7 +7,7 @@ export class UserService {
 
 	async getUsers() {
 
-		return await userDAO.getUsers();
+		return await this.userDAO.getUsers();
 
 		//     return [
 		//       { userId: 111, userName: 'Joao 1' },
@@ -18,7 +18,7 @@ export class UserService {
 	}
 
 	insertUser(user: any): any {
-		let daoReturn = this.contaDAO.insertConta({ nome: nomeConta });
+		let daoReturn = this.userDAO.insertUser({ userName: user.userName });
 		assert.equal(daoReturn.result.n, 1);
 	}
 }
