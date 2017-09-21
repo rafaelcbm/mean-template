@@ -17,8 +17,8 @@ export class UserService {
 		//       { userId: 555, userName: 'Joao 5' }];
 	}
 
-	insertUser(user: any): any {
-		let daoReturn = this.userDAO.insertUser({ userName: user.userName });
+	async insertUser(userName: any) {
+		let daoReturn = await this.userDAO.insertUser({ userName: userName });
 		assert.equal(daoReturn.result.n, 1);
 	}
 }

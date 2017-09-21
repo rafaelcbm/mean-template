@@ -23,16 +23,15 @@ app.use(express.static(join(__dirname, '../../../dist')));
 app.use(json());
 app.use(urlencoded({ extended: true }));
 
-// api routes
+
+// ****** API routes  ******
 app.use('/api/users', userRouter);
+
 
 // error handlers
 // development error handler
 // will print stacktrace
 if (app.get('env') === 'development') {
-
-    // app.use(express.static(join(__dirname, '../../node_modules')));
-    // app.use(express.static(join(__dirname, '../../tools')));
 
     app.use(function(err, req: express.Request, res: express.Response, next: express.NextFunction) {
         res.status(err.status || 500);

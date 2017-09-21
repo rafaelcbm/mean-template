@@ -24,3 +24,20 @@ userRouter.get('/all', function (request: Request, response: Response, next: Nex
 	}
 });
 
+userRouter.post("/", function (request: Request & { userName: string }, response: Response, next: NextFunction) {
+
+	let userName = request.body.userName;
+
+	try {
+		userService.insertUser(userName).then(
+			data => response.status(201).json({
+				status: 'sucesso'
+			})
+		);
+	} catch (err) {
+		logger.error('## Erro ao obter conexão com MongoBD: %j', err);
+		throw err;
+	}
+});
+
+

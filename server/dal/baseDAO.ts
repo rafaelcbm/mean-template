@@ -6,7 +6,7 @@ import { MongoDB } from '../config/mongo-db';
 export class BaseDAO {
 
 	// Insert a new document in the collection.
-	public insertDocument(document: any, collectionName: string): any {
+	public insertDocument(collectionName: string, document: any): any {
 		logger.info("** DAL - Collection: %j - Inserting Document: %j", collectionName, document);
 		return MongoDB.getConnection().collection(collectionName).insertOne(document);
 	}

@@ -12,7 +12,7 @@ export class UserDAO extends BaseDAO {
 		//   { userId: 555, userName: 'Joao 5' }];
 	}
 
-	insertUser(user: any): any {
-		return this.insertDocument(user, 'users');
+	insertUser(user) {
+		return this.insertDocument('users', user);
 	}
 }
